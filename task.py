@@ -1,4 +1,5 @@
 class SparseVector:
+    # Инициализация разреженного вектора.
     def __init__(self, elements=None):
         if elements is None:
             elements = {}
@@ -7,6 +8,7 @@ class SparseVector:
         self.elements = {k: v for k, v in elements.items() if v != 0}
 
     def __add__(self, other):
+        # Операция сложения
         if not isinstance(other, SparseVector):
             raise TypeError("Ошибка типа")
 
@@ -21,6 +23,7 @@ class SparseVector:
         return SparseVector(res)
 
     def __sub__(self, other):
+        # Операция вычитания
         if not isinstance(other, SparseVector):
             raise TypeError("Ошибка типа")
 
@@ -35,6 +38,7 @@ class SparseVector:
         return SparseVector(res)
 
     def dot(self, other):
+        # Вычисление скалярного произведения
         if not isinstance(other, SparseVector):
             raise TypeError("Ошибка типа")
         result = 0
